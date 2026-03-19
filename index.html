@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShaderLab AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!--style></style-->
+</head>
+<body>
+<div class="app">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <div class="logo-icon"></div>
+      Shader<span>Lab</span>
+    </div>
+    <div class="header-right">
+      <span class="fps-counter" id="fpsCounter">-- fps</span>
+      <div class="badge">AI Powered</div>
+    </div>
+  </header>
+
+  <!-- CANVAS PANEL -->
+  <div class="canvas-panel">
+    <canvas id="glCanvas"></canvas>
+    <div class="canvas-overlay">
+      <button class="ctrl-btn active" id="btnPlay" title="Play/Pause">⏸</button>
+      <button class="ctrl-btn" id="btnRestart" title="Restart">↺</button>
+      <div class="time-display" id="timeDisplay">t = 0.000</div>
+    </div>
+    <div class="error-overlay" id="errorOverlay">
+      <div class="error-box">
+        <h4>⚠ Shader Compile Error</h4>
+        <pre id="errorText"></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <!-- AI Prompt -->
+    <div class="prompt-area">
+      <div class="section-label">AI Prompt</div>
+      <div class="prompt-input-wrap">
+        <textarea id="promptInput" placeholder="Describe the shader effect you want…&#10;e.g. 'A fiery plasma wave with neon colors'"></textarea>
+        <div class="prompt-actions">
+          <button class="btn-generate" id="btnGenerate">
+            <span class="btn-text">✦ Generate Shader</span>
+            <span class="spinner"></span>
+          </button>
+          <button class="btn-random" id="btnRandom" title="Random prompt">⚄</button>
+        </div>
+        <div class="presets-wrap" id="presets"></div>
+      </div>
+    </div>
+
+    <!-- Code Editor -->
+    <div class="code-area">
+      <div class="code-header">
+        <div class="section-label" style="margin:0; flex:1">Fragment Shader</div>
+        <div class="code-actions">
+          <button class="btn-sm" id="btnCopy">Copy</button>
+          <button class="btn-sm primary" id="btnRun">▶ Run</button>
+        </div>
+      </div>
+      <textarea id="codeEditor" spellcheck="false"></textarea>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <div class="status-dot" id="statusDot"></div>
+      <span id="statusText">Ready</span>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="text/javascript" src="fragment.shader.js"></script>
+<script type="text/javascript" src="vertex.shader.js"></script>
+<script type="text/javascript" src="theme.js"></script>
+<script type="text/javascript" src="prompt.js"></script>
+  
+</body>
+</html>
