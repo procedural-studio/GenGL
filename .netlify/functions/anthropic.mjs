@@ -119,7 +119,7 @@ function respond(statusCode, body) {
     headers: {
       'Content-Type': 'application/json',
       ...corsHeaders(),
-      'x-api-key': process.env.ANTHROPIC_API_KEY,
+      'x-api-key': Netlify.env.ANTHROPIC_API_KEY,
     },
     body: JSON.stringify(body),
   };
